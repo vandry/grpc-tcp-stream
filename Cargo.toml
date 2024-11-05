@@ -1,0 +1,30 @@
+[package]
+name = "grpc-tcp-stream"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+async-stream = "0.3"
+clap = { version = "4.5", features = ["derive"] }
+comprehensive = "0.5"
+comprehensive_grpc = "0.5"
+env_logger = "0.10"
+futures = "0.3"
+http = "1.1"
+http-body = "1.0"
+log = "0.4"
+prost = "0.13"
+tokio = { version = "1.40", features = ["rt-multi-thread"] }
+tokio-rustls = { version = "0.26", optional = true }
+tonic = "0.12"
+tower-service = "0.3"
+
+[features]
+tls = ["comprehensive/tls", "comprehensive_grpc/tls", "dep:tokio-rustls"]
+
+[build-dependencies]
+tonic-build = "0.12"
+
+[[bin]]
+name = "grpc-tcp-stream-receiver"
+path = "src/server.rs"

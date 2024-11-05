@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package tcpstream;
+
+message Bytes {
+  optional bytes b = 1;
+}
+
+service Stream {
+  rpc Stream(stream Bytes) returns (stream Bytes) {}
+}

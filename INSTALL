@@ -1,0 +1,3 @@
+cargo build --release --target x86_64-unknown-linux-musl
+docker build -t vandry/grpc-tcp-stream .
+docker push vandry/grpc-tcp-stream
